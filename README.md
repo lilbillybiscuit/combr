@@ -4,10 +4,10 @@ A macOS utility for browsing and extracting code from your projects. Combr makes
 
 # Demo
 
-<div align="center">
-https://raw.githubusercontent.com/lilbillybiscuit/combr/refs/heads/main/assets/demo.mp4
 
-</div>
+https://github.com/user-attachments/assets/d052b850-c48d-47b1-bc7d-f65c3117e5d1
+
+
 
 ## Features
 
