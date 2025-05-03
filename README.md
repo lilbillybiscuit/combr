@@ -1,6 +1,13 @@
 # Combr
 
-A macOS utility for browsing and extracting code from your projects. Combr makes it easy to select multiple files across your codebase and combine their contents into a single formatted output for sharing.
+A macOS utility for browsing and extracting code from your projects. Combr makes it easy to select multiple files across your codebase and combine their contents into a single formatted output for use with AI tools.
+
+# Demo
+
+<div align="center">
+
+
+</div>
 
 ## Features
 
