@@ -1,40 +1,36 @@
-name: Build macOS App and Create Release
+name: macOS Release Build
 
 on:
   push:
     tags:
-      - 'v*'
-
+      - 'v*' 
 jobs:
-  build:
-    runs-on: macos-12
+  release: 
+    runs-on: macos-latest 
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Set up Swift
+      - name: Setup Swift
         uses: swift-actions/setup-swift@v1
         with:
-          swift-version: '5.7.3'
+          swift-version: '5.10' 
 
-      - name: Build Application
-        run: |
-          swift build -c release
-          mkdir -p artifacts
-          cp -r .build/release/combr artifacts/
-          cd artifacts && zip -r combr-macos.zip combr
-        env:
-          TOOLCHAINS: swift
-      
-      - name: Create Release
-        id: create_release
+      - name: Build executable
+        id: build 
+       run: | 
+          swift build -c release --product combr
+          
+          chmod +x .build/release/combr
+          
+          echo "asset_path=.build/release/combr" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          files: artifacts/combr-macos.zip
-          name: Release ${{ github.ref_name }}
-          draft: false
-          prerelease: false
-          generate_release_notes: true
+          files: ${{ steps.build.outputs.asset_path }} 
+          name: Release ${{ github.ref_name }} 
+          generate_release_notes: true 
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
