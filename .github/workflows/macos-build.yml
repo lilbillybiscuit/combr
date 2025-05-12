@@ -7,23 +7,25 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
-    
+    runs-on: macos-12
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      
+
       - name: Set up Swift
         uses: swift-actions/setup-swift@v1
         with:
-          swift-version: '5.7'
-      
+          swift-version: '5.7.3'
+
       - name: Build Application
         run: |
           swift build -c release
           mkdir -p artifacts
           cp -r .build/release/combr artifacts/
           cd artifacts && zip -r combr-macos.zip combr
+        env:
+          TOOLCHAINS: swift
       
       - name: Create Release
         id: create_release
