@@ -20,7 +20,7 @@ https://github.com/user-attachments/assets/d052b850-c48d-47b1-bc7d-f65c3117e5d1
 ## Installation
 
 ```bash
-git clone https://github.com/yourusername/combr.git
+git clone https://github.com/lilbillybiscuit/combr.git
 cd combr
 swift build -c release
 ```
@@ -63,3 +63,5 @@ Steps:
 1. Clone the repository
 2. Run `swift build` to build
 3. Run `swift run` to run
+
+
