@@ -21,7 +21,7 @@ jobs:
 
       - name: Build executable
         id: build 
-       run: | 
+        run: | 
           swift build -c release --product combr
           
           chmod +x .build/release/combr
